@@ -6,17 +6,17 @@ import matplotlib.pyplot as plt
 
 def taylor_approx(func, start, end, degree, c):
     x = sp.symbols('x')
-    f = func(x)
-    taylor_series = sum(f.diff(x, n).subs(x, c) * (x - c)**n / sp.factorial(n) for n in range(degree + 1))
+    # Construct the Taylor series up to the given degree
+    taylor_series = sum(func.diff(x, n).subs(x, c) * (x - c)**n / sp.factorial(n) for n in range(degree + 1))
     f_approx = sp.lambdify(x, taylor_series, 'numpy')
     x_vals = np.linspace(start, end, 100)
     return f_approx(x_vals), x_vals
 
 def factorial_analysis(func, start, end, c, initial_degree, final_degree, degree_step):
     x = sp.symbols('x')
-    f = func(x)
     x_vals = np.linspace(start, end, 100)
-    f_exact = sp.lambdify(x, f, 'numpy')
+    # Convert func to a callable function for NumPy
+    f_exact = sp.lambdify(x, func, 'numpy')
     f_vals = f_exact(x_vals)
     results = []
 
@@ -33,19 +33,21 @@ def factorial_analysis(func, start, end, c, initial_degree, final_degree, degree
 def example_run():
     x = sp.symbols('x')
     func = x * sp.sin(x)**2 + sp.cos(x)
-    start, end, degree, c = -10, 10, 99, 0
+    start, end, c = -10, 10, 0
 
-    # Compute the Taylor series approximation and original function values
+    degree = 50
     f_approx_vals, x_vals = taylor_approx(func, start, end, degree, c)
     f_exact = sp.lambdify(x, func, 'numpy')
     f_vals = f_exact(x_vals)
 
-    # Plot the results
-    plt.plot(x_vals, f_vals, label='Original Function')
-    plt.plot(x_vals, f_approx_vals, label='Taylor Approximation')
+    plt.plot(x_vals, f_vals, label='Original Function', color='blue')
+    plt.plot(x_vals, f_approx_vals, label=f'Taylor Approximation (Degree {degree})', color='red', linestyle='--')
     plt.xlabel('x')
     plt.ylabel('f(x)')
     plt.legend()
+    plt.title(f'Taylor Series Approximation vs. Original Function (Degree {degree})')
+    plt.grid(True)
+    plt.savefig('results/taylor_approximation.png')
     plt.show()
 
 example_run()

@@ -13,7 +13,7 @@ def mandelbrot(threshold=50):
     
     plt.imshow(mask.T, extent=[-2, 1, -1.5, 1.5])
     plt.gray()
-    plt.savefig('mandelbrot.png')
+    plt.savefig('results/mandelbrot.png')
     plt.show()
 
 mandelbrot()
