@@ -28,11 +28,12 @@ def factorial_analysis(func, start, end, c, initial_degree, final_degree, degree
         results.append([degree, error, elapsed_time])
 
     df = pd.DataFrame(results, columns=['Degree', 'Error', 'Time'])
-    df.to_csv('taylor_values.csv', index=False)
+    df.to_csv('results/taylor_values.csv', index=False)
 
 def example_run():
     x = sp.symbols('x')
     func = x * sp.sin(x)**2 + sp.cos(x)
+    factorial_analysis(func, -10, 10, 0, 50, 100, 10)
     start, end, c = -10, 10, 0
 
     degree = 50
