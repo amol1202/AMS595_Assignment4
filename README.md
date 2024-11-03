@@ -67,3 +67,40 @@ Interval size taken as [−10,10] &times; [−10,10] and using Taylor series exp
 - Use SymPy to compute the Taylor series expansion up to a specified degree.
 - Compare the approximation with the original function and calculate error and runtime.
 - Plot the original function against its Taylor approximation.
+
+## Requirements
+
+- Python 3.9
+- NumPy
+- SymPy
+- Matplotlib
+- Pandas
+
+## Results
+
+### Mandelbrot Set
+The generated Mandelbrot set image is saved as `mandelbrot.png` in results folder and **demonstrates the fractal pattern of bounded complex values**.
+![mandelbrot_set_image](results/mandelbrot.png)
+
+### Markov Chain
+The stationary distribution of the Markov chain converges within a tolerance of 10<sup>-5</sup>, confirming expected behavior of Markov chains in equilibrium.
+
+### Taylor Series Approximation
+The Taylor series approximation closely matches the original function around the expansion point but diverges near the edges of the interval 
+[−10,10]. The error and runtime are recorded in `taylor_values.csv`.
+![taylor_approximation_image](results/taylor_approximation.png)
+
+## Project Structure
+
+```
+project/
+│
+├── mandelbrot.py         # Mandelbrot Set implementation
+├── markov_chain.py       # Markov Chain simulation
+├── taylor.py             # Taylor Series Approximation script
+├── results/              # Folder containing output files
+│   ├── mandelbrot.png    # Output image of Mandelbrot fractal
+│   ├── taylor.png        # Output image of Taylor series approximation
+│   └── taylor_values.csv  # CSV file with Taylor series error and runtime data
+└── README.md             # Project documentation
+```
