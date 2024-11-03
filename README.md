@@ -68,14 +68,6 @@ Interval size taken as [−10,10] &times; [−10,10] and using Taylor series exp
 - Compare the approximation with the original function and calculate error and runtime.
 - Plot the original function against its Taylor approximation.
 
-## Requirements
-
-- Python 3.9
-- NumPy
-- SymPy
-- Matplotlib
-- Pandas
-
 ## Results
 
 ### Mandelbrot Set
@@ -90,6 +82,48 @@ The Taylor series approximation closely matches the original function around the
 [−10,10]. The error and runtime are recorded in `taylor_values.csv`.
 ![taylor_approximation_image](results/taylor_approximation.png)
 
+## Requirements
+
+- Python 3.9
+- NumPy
+- SymPy
+- Matplotlib
+- Pandas
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/amol1202/AMS595_Assignment4
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Create and activate the environment
+
+```bash
+  conda create -p venv/ python==3.9
+  conda activate venv/
+```
+
+Install dependencies
+
+```bash
+  pip install -r requirements.txt
+```
+
+Usage
+
+```bash
+  python mandelbrot.py
+  python markov_chain.py
+  python taylor.py 
+```
 ## Project Structure
 
 ```
