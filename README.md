@@ -101,7 +101,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd AMS595_Assignment4
 ```
 
 Create and activate the environment
